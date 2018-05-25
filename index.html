@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="SummerWords" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Press+Start+2P|Source+Sans+Pro" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detroit Summer Word Generator</title>
+</head>
+<body>
+    
+    <main ng-controller="DetroitCtrl as summer" class="main">
+        <h1>Detroit Summer Words with AngularJS</h1>
+        <h2>just 'cause</h2>
+        
+        <section class="button-container">
+            <button type="button" ng-click="summer.addWord()"> + word</button>
+            <button type="button" ng-click="summer.addWordStyled()"> + phrase</button>
+            <button type="button" ng-click="summer.addPhrase()"> + styled word</button>
+            <button type="button" ng-click="summer.addPhraseStyled()"> + styled phrase</button>
+        </section>
+        <section ng-repeat="item in summer.print track by $index" class="words-phrases">
+                
+            <p ng-class="{'style':item.styled === true}" > {{ item.printedEl }}</p>
+              
+        </section>
+        <button type="button" ng-click="summer.reset();">RESET</button>
+    </main>
+
+
+    <!--linking scripts-->
+    <script src="https://code.angularjs.org/1.6.5/angular.min.js"></script>
+    <script src="module.js"></script>
+    <script src="controller.js"></script>
+</body>
+</html>
